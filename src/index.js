@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from './store/configureStore';
+import 'react-toastify/dist/ReactToastify.min.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const store = configureStore();
+ReactDOM.render( //ReactDOM => sanal bir virtualDom dediğimiz bir dom mekainizması ile çalışıyor.
+    //       nedir bu dom bizim uygulamamızın çalıştığı esnada arka planda oluşan HTML yapısı denilenbilir en basit haliyle
+    <Provider store ={store}>
+        <BrowserRouter> <App /></BrowserRouter>
+    </Provider>
+    
+    , document.getElementById('root') //App component'ini root'a yerleştir. yanii uygulamanın görüntüsü app olacak
 );
 
 // If you want to start measuring performance in your app, pass a function
