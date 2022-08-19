@@ -16,6 +16,7 @@ export default function SignedIn({signOut,bisey}) { // burası düz props altta 
                     </Dropdown.Menu>
                 </Dropdown>
             </Menu.Item>
+            
         </div>
     )
 }
